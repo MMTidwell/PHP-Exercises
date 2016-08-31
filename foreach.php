@@ -40,8 +40,7 @@ foreach ($things as $value) {
 		
 		foreach ($value as $index) {
 			echo $index. ", ";
-		} echo PHP_EOL;
-	
+		} echo "\x08\x08 \n";
 	} else {
 		echo $value . PHP_EOL;
 	}
