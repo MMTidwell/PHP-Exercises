@@ -4,7 +4,7 @@
 // 	√ - construct a loop that iterates through each book 
 // 	√ - loops through each books key and value 
 // 		√ - echo book title, list the key value pairs about each 
-// 	- update loop to show only book that were written after 1950.
+// 	√ - update loop to show only book that were written after 1950.
 
 
 $books = array(
