@@ -68,7 +68,7 @@ foreach ($things as $value) {
 	if (is_array($value)) {
 		// joins array element with a string
 		echo (implode(", ", $value));
-		echo "\x08\x08 \n";
+		echo "\x08\x08" . PHP_EOL;
 	} else {
 		echo $value . PHP_EOL;
 	}
