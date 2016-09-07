@@ -1,9 +1,36 @@
 <?php
 
-function logMessage($logLevel, $message)
-{
-    // todo - complete this function
+// Features
+// 	√ - log to file named log-YYYY-MM-DD.log, fills with actual date
+// 	√ - if log does not exist it should be created, is it does then append
+// 	√ - newer logs at the end of file
+// 	√ - log entries should match the format:
+// 		YYYY-MM-DD HH:MM:SS [LEVEL] MESSAGE (should be one line each entry)
+
+
+function logMessage($logLevel, $message) {
+   	// date format string (year, month, date) and (year, month, date, hour, min, sec)
+	$date = date("Y-m-d");
+	$logEntries = date("Y-m-d H:i:s");
+
+	// opens file and creates it if not already created
+	$handle = fopen("log-{$date}.log", 'a');
+
+	// write date to file
+	fwrite($handle, "$logEntries $logLevel $message");
+
+	// closes file 
+	fclose($handle);
 }
 
-logMessage("INFO", "This is an info message.");
-logMessage("ERROR", "This is an info message.");
+function logError($message) {
+	logMessage('ERROR', $message);
+}
+
+function logInfo($message) {
+	logMessage('INFO', $message);
+}
+
+logError("Username or password is incorrect" . PHP_EOL);
+logInfo("User logged in successfully" . PHP_EOL);
+
