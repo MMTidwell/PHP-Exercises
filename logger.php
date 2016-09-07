@@ -10,11 +10,11 @@
 
 function logMessage($logLevel, $message) {
    	// date format string (year, month, date) and (year, month, date, hour, min, sec)
-	$date = date("Y-m-d");
-	$logEntries = date("Y-m-d H:i:s");
+	$fileNameWithDate = date("Y-m-d");
+	$logEntries = date("Y-m-d g:i:sa");
 
 	// opens file and creates it if not already created
-	$handle = fopen("log-{$date}.log", 'a');
+	$handle = fopen("log-{$fileNameWithDate}.log", 'a');
 
 	// write date to file
 	fwrite($handle, "$logEntries $logLevel $message");
