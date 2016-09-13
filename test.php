@@ -1,12 +1,21 @@
 <?php
 
-function compare($a, $b, $strict = true) {
-    if ($strict === true) {
-        return $a === $b ? 'True' : 'False';
-    } else {
-        return $a == $b ? 'True' : 'False';
-    }
+class Person
+{
+	public $firstName;
+	public $lastName;
+
+	// all construct must be named __construct
+	public function __construct($firstName, $lastName)
+	{
+		$this->firstName = $firstName;
+		$this->lastName = $lastName;
+	}
+
+	public function __destruct()
+	{
+		echo "I am {$this->firstName} {$this->lastName}  " . time() . PHP_EOL;
+	}
 }
 
-echo compare('Madonna', 'Lady Gaga', true);
-echo compare('Madonna', 'Lady Gaga');
+$john = new Person('Some', 'Name');
