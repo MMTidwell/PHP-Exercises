@@ -1,13 +1,16 @@
 <?php 
 class Log {
-	public $filename;
+	// assigning properties
 	public $datetime;
+	public $filename;
 	public $handle;
 
+	// __construct and __destruct will always run first but can go anywhere in the class. It is best practice place at the top
 	public function __construct($prefix = 'log') 
 	{
-		// $this->filename = "$prefix-YYYY-MM-DD.log";
-		$this->handle = fopen($this->filename = "$prefix-YYYY-MM-DD.log", 'a');
+		$this->datetime = date("Y-m-d");
+		$this->filename = "$prefix-{$this->datetime}.log";
+		$this->handle = fopen($this->filename, "a");
 	}
 
 	public function __destruct() 
