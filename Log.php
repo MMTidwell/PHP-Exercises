@@ -18,6 +18,7 @@ class Log {
 		fclose($this->handle);
 	}
 
+	// defaults to public if it is not stted before function
 	function logMessage($logLevel, $message) {
 		$string = "{$this->datetime} $logLevel $message" . PHP_EOL;
 		fwrite($this->handle, $string);
@@ -29,6 +30,11 @@ class Log {
 	}
 
 	function info($message)
+	{
+		$this->logMessage("INFO", $message);
+	}
+
+	function logOut($message)
 	{
 		$this->logMessage("INFO", $message);
 	}
